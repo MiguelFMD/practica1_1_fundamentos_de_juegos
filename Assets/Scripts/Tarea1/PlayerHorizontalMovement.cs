@@ -12,7 +12,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
     [SerializeField] private float distanceToActivate = 3f;
     private Animator animator;
-
+    float horizontalInput = 0f;
 
     private Vector3 firstPosition;
     private float distanceTraveled;
@@ -35,17 +35,21 @@ public class PlayerHorizontalMovement : MonoBehaviour
     void Update()
     {
         //Obtengo el input horizontal (uso el Input System de Unity)
-        float horizontalInput = 0f;
         float left = Keyboard.current.aKey.isPressed ? -1f : 0f;
         float right = Keyboard.current.dKey.isPressed ? 1f : 0f;
         horizontalInput = left + right;
 
+        PlayerFlip();
+        PlayerSetWalkAnimationByDistance();
+    }
 
-        //En vez de con el transform, muevo el personaje con el Rigidbody2D
-        //así detecta mejor las físicas
-        Vector2 movement = new Vector2(horizontalInput, 0f);
-        rb2d.MovePosition(rb2d.position + movement * speed * Time.deltaTime);
+    private void FixedUpdate()
+    {
+        PlayerInputHorizontalMovement();
+    }
 
+    private void PlayerFlip()
+    {
         //Altero el flip del sprite según la dirección
         if (horizontalInput > 0f)
         {
@@ -55,12 +59,22 @@ public class PlayerHorizontalMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+    }
 
+    private void PlayerSetWalkAnimationByDistance()
+    {
         float distanceThisFrame = Vector3.Distance(firstPosition, transform.position);
         distanceTraveled += distanceThisFrame;
         firstPosition = transform.position;
-
         bool changeAnim = distanceTraveled >= distanceToActivate;
         animator.SetBool("walkLeft", changeAnim);
+    }
+
+    private void PlayerInputHorizontalMovement()
+    {
+        //En vez de con el transform, muevo el personaje con el Rigidbody2D
+        //así detecta mejor las físicas
+        Vector2 movement = new Vector2(horizontalInput, 0f);
+        rb2d.MovePosition(rb2d.position + movement * speed * Time.deltaTime);
     }
 }
