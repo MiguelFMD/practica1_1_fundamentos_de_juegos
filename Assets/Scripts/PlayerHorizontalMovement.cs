@@ -5,21 +5,11 @@ public class PlayerHorizontalMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private float distanceToActivate = 3f;
-    private Animator animator;
-
-
-    private Vector3 firstPosition;
-    private float distanceTraveled;
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-
-        firstPosition = transform.position;
-        distanceTraveled = 0f;
     }
 
     // Update is called once per frame
@@ -41,12 +31,5 @@ public class PlayerHorizontalMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-
-        float distanceThisFrame = Vector3.Distance(firstPosition, transform.position);
-        distanceTraveled += distanceThisFrame;
-        firstPosition = transform.position;
-
-        bool changeAnim = distanceTraveled >= distanceToActivate;
-        animator.SetBool("walkLeft", changeAnim);
     }
 }
