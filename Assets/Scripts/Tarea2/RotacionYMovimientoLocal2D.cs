@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class RotacionYMovimientoLocal2D : MonoBehaviour
 {
-    // Variables ajustables en el Inspector
     // Velocidad de traslación hacia adelante (unidades por segundo)
     [SerializeField] private float speed = 5f;
     // Velocidad de rotación (grados por segundo)
