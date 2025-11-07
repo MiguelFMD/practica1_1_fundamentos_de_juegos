@@ -44,7 +44,7 @@ public class RotacionYMovimientoLocal2D : MonoBehaviour
 
             // Avance en dirección "adelante" según la nueva rotación
             float rad = newRotation * Mathf.Deg2Rad;
-            Vector2 forward = new Vector2(Mathf.Sin(rad), Mathf.Cos(rad)); // equivalente a transform.up
+            Vector2 forward = (Vector2)(Quaternion.Euler(0f, 0f, newRotation) * Vector2.up);
             Vector2 newPosition = rb2d.position + forward * forwardDistance;
             rb2d.MovePosition(newPosition);
         }
