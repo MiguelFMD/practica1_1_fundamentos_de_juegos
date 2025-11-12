@@ -16,7 +16,7 @@ La segunda parte de la práctica corresponde a Task2. En ella cada objeto tiene 
 
 El siguiente Gif muestra el resultado final de la práctica de la parte de tile maps:
 
-![](docs/images/gif_tilemaps.png)
+![](docs/images/gif_tilemaps.gif)
 
 La siguiente imagen muestra la ventana tile palette donde están los diferentes tiles usados. Se han usado 2 capas, una para decoración y otra para colisiones y delimitar el mapa.
 
