@@ -1,24 +1,24 @@
-## Camaras
+# Camaras
 
-# Camaras virtuales
+## Camaras virtuales
 
 ![](docs/images/camaras_virtuales.gif)
 
-# Confinamiento
+## Confinamiento
 
 ![](docs/images/confinamiento.gif)
 
-# Grupo de objetivos
+## Grupo de objetivos
 
 ![](docs/images/grupo_1.gif)
 
 ![](docs/images/grupo_2_weigth.gif)
 
-# Zoom
+## Zoom
 
 ![](docs/images/zoom.gif)
 
-# Intercambiar camaras
+## Intercambiar camaras
 
 ![](docs/images/switch_camera_1.gif)
 
