@@ -1,20 +1,27 @@
 using UnityEngine;
-using System.Collections; // Necesario para Corrutinas
 
 public class ControlProyectil : MonoBehaviour
 {
     private SpriteRenderer miRenderer;
-    private Animator miAnimator;
+
+    private void OnEnable()
+    {
+        PlayerShoot.OnColisionEspecial += DispararPorEvento;
+    }
+
+    private void OnDisable()
+    {
+        PlayerShoot.OnColisionEspecial -= DispararPorEvento;
+    }
 
     void Start()
     {
-        miAnimator = GetComponent<Animator>();
-        ActivarDisparo();
-        Destroy(gameObject, 2.0f);
+        miRenderer = GetComponent<SpriteRenderer>();
+        miRenderer.enabled = false;
     }
 
-    public void ActivarDisparo()
+    void DispararPorEvento()
     {
-        miAnimator.SetTrigger("Dispara");
+        miRenderer.enabled = true;
     }
 }

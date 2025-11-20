@@ -1,11 +1,17 @@
 using UnityEngine;
+using System;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public GameObject prefabProyectil; 
+    
+    public static event Action OnColisionEspecial;
 
-    public void InstanciarDisparo()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(prefabProyectil, transform.position, transform.rotation);
+        if (collision.gameObject.CompareTag("Enemigo")) 
+        {
+            OnColisionEspecial?.Invoke();
+            Debug.Log("¡Evento lanzado!");
+        }
     }
 }
