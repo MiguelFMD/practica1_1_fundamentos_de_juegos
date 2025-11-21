@@ -36,6 +36,15 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlatInv"))
+        {
+            SpriteRenderer sr = collision.gameObject.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.enabled = true;
+
+            
+            isJumping = false;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)

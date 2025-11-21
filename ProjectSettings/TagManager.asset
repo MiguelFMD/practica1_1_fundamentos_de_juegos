@@ -8,6 +8,7 @@ TagManager:
   - ZonaRapida
   - Enemigo
   - Suelo
+  - PlataformaMovil
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Barrier
-  - 
+  - PlatInv
   - 
   - 
   - 
