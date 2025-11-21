@@ -20,3 +20,11 @@
 
 ![](docs/images/parallax.gif)
 
+## Pooling de objetos
+
+![](docs/images/pool_1.gif)
+
+## Mejoras rendimiento anterior entrega
+
+En la entrega anterior se pedía una Mecánica de recolección. Se podría optimizar esta entrega teniendo una pool de los objetos que son "recolectables" y así tener un máximo de objetos que pueden aparecer en la escena.
+
