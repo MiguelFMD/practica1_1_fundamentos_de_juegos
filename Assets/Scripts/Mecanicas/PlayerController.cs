@@ -28,5 +28,21 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, 0);
         }
+
+        if (collision.gameObject.CompareTag("PlataformaMovil"))
+        {
+            transform.SetParent(collision.transform);
+
+            isJumping = false;
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlataformaMovil"))
+        {
+            transform.SetParent(null);
+        }
     }
 }
